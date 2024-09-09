@@ -6,20 +6,20 @@ function initCarousel() {
   const offSet = slideAll.offsetWidth;
   slideL.style.display = 'none';
 
-  let i = 0;
+  let currentSlide = 0;
 
   slideL.addEventListener('click', () => {
-    update(--i);
-    slideAll.style.transform = `translateX(-${i * offSet}px)`;
+    update(--currentSlide);
+    slideAll.style.transform = `translateX(-${currentSlide * offSet}px)`;
   });
 
   slideR.addEventListener('click', () => {
-    update(++i);
-    slideAll.style.transform = `translateX(-${i * offSet}px)`;
+    update(++currentSlide);
+    slideAll.style.transform = `translateX(-${currentSlide * offSet}px)`;
   });
 
-  function update(i) {
-    slideL.style.display = i === 0 ? 'none' : '';
-    slideR.style.display = i === sLength ? 'none' : '';
+  function update(currentSlide) {
+    slideL.style.display = currentSlide === 0 ? 'none' : '';
+    slideR.style.display = currentSlide === sLength ? 'none' : '';
   }
 }
